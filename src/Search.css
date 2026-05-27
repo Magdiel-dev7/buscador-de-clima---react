@@ -1,0 +1,220 @@
+/* Container Principal (Agora em estilo Vidro para combinar com o fundo da página) */
+.searchWraper {
+  padding: 30px; 
+  border-radius: 20px; 
+  max-width: 400px; 
+  margin: 60px auto; /* Aumentei a margem para desencostar do topo da tela */
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+  font-family: sans-serif;
+  text-align: center;
+  transition: all 0.5s ease; 
+  color: #1e293b;
+  
+  /* Efeito de Vidro no Container principal */
+  background: rgba(255, 255, 255, 0.4); 
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Se o fundo for escuro, o container principal fica com vidro escuro */
+.searchWraper.fundo-escuro {
+  color: #f8fafc;
+  background: rgba(15, 23, 42, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* O RESTO DO SEU CSS CONTINUA IGUAL... */
+
+.search h2 {
+  color: #0369a1; 
+  margin-bottom: 20px;
+  transition: color 0.5s ease;
+}
+.searchWraper.fundo-escuro .search h2 {
+  color: #38bdf8;
+}
+.search form {
+  display: flex; 
+  gap: 10px; 
+  margin-bottom: 20px;
+}
+.search input[type="text"] {
+  padding: 12px; 
+  flex: 1; 
+  border-radius: 8px; 
+  border: 1px solid rgba(0, 0, 0, 0.1); 
+  outline: none;
+  background: white;
+}
+.search input[type="submit"] {
+  padding: 12px 20px; 
+  background: #0284c7; 
+  color: white; 
+  border: none; 
+  border-radius: 8px; 
+  font-weight: bold; 
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.search input[type="submit"]:hover {
+  background: #0369a1;
+}
+.error-box {
+  color: #ef4444; 
+  margin-top: 15px; 
+  font-weight: bold;
+}
+.weather-result {
+  margin-top: 20px; 
+  background: rgba(255, 255, 255, 0.6); 
+  padding: 20px; 
+  border-radius: 15px; 
+  backdrop-filter: blur(5px);
+  transition: background 0.5s ease;
+}
+.searchWraper.fundo-escuro .weather-result {
+  background: rgba(15, 23, 42, 0.5);
+}
+.weather-result h3 {
+  margin: 0; 
+  color: inherit; 
+}
+.weather-info {
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  margin: 10px 0;
+}
+.weather-temp {
+  font-size: 3.5rem; 
+  font-weight: bold; 
+  color: #0284c7;
+}
+.searchWraper.fundo-escuro .weather-temp {
+  color: #38bdf8;
+}
+.weather-icon {
+  width: 80px;
+}
+.weather-desc {
+  text-transform: capitalize; 
+  margin: 0 0 20px 0; 
+  font-weight: 500; 
+  color: #475569;
+}
+.searchWraper.fundo-escuro .weather-desc {
+  color: #cbd5e1;
+}
+.weather-details {
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  gap: 15px; 
+  border-top: 1px solid rgba(0,0,0,0.1); 
+  padding-top: 15px; 
+  font-size: 0.9rem; 
+  color: #334155;
+}
+.searchWraper.fundo-escuro .weather-details {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  color: #e2e8f0;
+}
+.detail-item span {
+  display: block; 
+  color: #64748b;
+  margin-bottom: 2px;
+}
+.searchWraper.fundo-escuro .detail-item span {
+  color: #94a3b8;
+}
+.placeholder-text {
+  margin-top: 30px; 
+  color: #64748b; 
+  font-size: 0.9rem;
+}
+.searchWraper.fundo-escuro .placeholder-text {
+  color: #94a3b8;
+}
+
+/* ... (Mantenha todo o resto do seu CSS igual) ... */
+
+/* Estilo do Rodapé */
+.app-footer {
+  margin-top: 40px;
+  font-size: 0.85rem;
+  color: #475569;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding-top: 15px;
+  transition: all 0.5s ease;
+}
+
+/* Garante que o texto fique claro se o app entrar no modo Noite/Chuva */
+.searchWraper.fundo-escuro .app-footer {
+  color: #94a3b8;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* --- ANIMAÇÃO PARA O ÍCONE GRANDE DO CLIMA --- */
+.weather-icon {
+  width: 80px;
+  display: inline-block;
+  /* Aplica a animação: dura 3 segundos, infinita e suavizada */
+  animation: flutuarClima 3s infinite ease-in-out; 
+  /* Adiciona uma sombra suave que acompanha o movimento */
+  filter: drop-shadow(0 8px 8px rgba(0, 0, 0, 0.1));
+}
+
+@keyframes flutuarClima {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px); /* Sobe 6 pixels */
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+
+/* --- ANIMAÇÃO PARA OS MINI-ÍCONES DOS DETALHES --- */
+.detail-item span {
+  display: block; 
+  color: #64748b;
+  margin-bottom: 2px;
+}
+
+/* Criamos uma classe ou seletor para os emojis dos detalhes flutuarem */
+.detail-item span::first-letter {
+  display: inline-block;
+  animation: flutuarMini 2s infinite ease-in-out;
+}
+
+/* Fazemos os ícones ímpares subirem em tempos diferentes para não mover tudo junto */
+.detail-item:nth-child(even) span::first-letter {
+  animation-delay: 0.5s; 
+}
+
+@keyframes flutuarMini {
+  0% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-2px) scale(1.05); /* Sobe só um pouquinho e aumenta de leve */
+  }
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+}
+
+
+/* --- ANIMAÇÃO DO FOGUETE DO FOOTER (Caso não tenha colocado ainda) --- */
+.footer-icon {
+  display: inline-block;
+  animation: flutuarFoguete 2.5s infinite ease-in-out;
+}
+
+@keyframes flutuarFoguete {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-3px) rotate(5deg); } /* Sobe e dá uma leve inclinada */
+  100% { transform: translateY(0px) rotate(0deg); }
+}
